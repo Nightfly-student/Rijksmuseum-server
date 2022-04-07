@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anagram - Jelle Toonen</title>
+  </head>
+
+  <body>
+    <h1>Anagram Solver Endeavour Internship Challenge</h1>
+    <p>
+      create a program that takes a list of any number of strings and will <br/>
+      determine which words in the list are exact anagrams of each other (ignoring spaces).
+    </p>
+    <p>
+        <strong>This project took 30 minutes to make (including the beautiful html)</strong>
+    </p>
+    <h2>Anagram Result</h2>
+    <p>
+        Check out the console log for all results.
+    </p>
+    <div id="answer"></div>
+    <h2>The code solution</h2>
+    <code>
+      var words = [ "rope", "pore", "repo", "red rum", "murder", "listen",
+      "silent", "endeavour", ];
+    </code>
+    <p>Input of the anagram</p>
+    <code> var map = {}, solution = []; </code>
+    <p>Placeholders</p>
+    <code>
+            var alphabeticalWords = words.map((word) => {<br/>
+            return word.replaceAll(" ", "").split("").sort().join("");<br/>
+          });
+    </code>
+    <p>
+        Map the words and return them by replacing any whitespace between text,</br> 
+        then split the words into letters and sort them alphabetical and put them back together
+    </p>
+    <p>
+        result: [ "eopr", "eopr", "eopr", "demrru", "demrru", "eilnst", "eilnst", "adeenoruv" ]
+    </p>
+    <code>
+            alphabeticalWords.forEach((alphabeticalWords, index) => { {<br/>
+            map[alphabeticalWords] = map[alphabeticalWords] || [];<br/>
+            map[alphabeticalWords].push(words[index]);<br/>
+          });
+    </code>
+    <p>foreach word check if the word is included in another word, if so push the original word into the object index. </br>
+    this only works with Objects, if you want to write more code you could also make this possibe with if(word.include()) </p>
+    <p>result: Object { eopr: (3) […], demrru: (2) […], eilnst: (2) […], adeenoruv: (1) […] }</p>
+    <code>
+            Object.keys(map).forEach((alphabeticalWords) => {<br/>
+            var arr = [];<br/>
+            arr.push(map[alphabeticalWords]);<br/>
+            solution.push(arr);<br/>
+          });
+    </code>
+    <p>Foreach key (example of key eopr) get the combinations from map and put them in an array for display and the solution of the question</p>
+</body>
+  <script>
+    var words = [
+      "rope",
+      "pore",
+      "repo",
+      "red rum",
+      "murder",
+      "listen",
+      "silent",
+      "endeavour",
+    ];
+    var map = {},
+      solution = [];
+
+    var alphabeticalWords = words.map((word) => {
+      return word.replaceAll(" ", "").split("").sort().join("");
+    });
+    console.log(alphabeticalWords);
+
+    alphabeticalWords.forEach((alphabeticalWords, index) => {
+      map[alphabeticalWords] = map[alphabeticalWords] || [];
+      map[alphabeticalWords].push(words[index]);
+    });
+    console.log(map);
+
+    Object.keys(map).forEach((alphabeticalWords) => {
+      var arr = [];
+      arr.push(map[alphabeticalWords]);
+      solution.push(arr);
+    });
+    console.log(solution);
+
+    const answerOnScreen = document.getElementById("answer");
+    const start = document.createElement("p");
+    const startNode = document.createTextNode(`[`);
+    start.appendChild(startNode);
+    answerOnScreen.append(start);
+
+    solution.forEach((sol) => {
+      const para = document.createElement("p");
+      const node = document.createTextNode(`[${sol}]`);
+      para.style.paddingLeft = "20px";
+      para.appendChild(node);
+      answerOnScreen.append(para);
+    });
+
+    const end = document.createElement("p");
+    const endNode = document.createTextNode(`]`);
+    end.appendChild(endNode);
+    answerOnScreen.append(end);
+  </script>
+</html>
+
+<style type="text/css">
+    body {
+        width: 90%;
+        margin: auto;
+    }
+  code {
+    background: rgb(23, 23, 23);
+    color: white;
+    padding: 5px;
+  }
+</style>
