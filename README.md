@@ -7,7 +7,7 @@
  Github Frontend: https://github.com/Nightfly-student/Rijksmuseum-frontend <br/>
  Anagrams assignment: https://rijksm.herokuapp.com/anagrams.html <br/>
  
- The website is made in Vite + ExpressJs + Monogdb as a internship assignment for Endeavor. <br/>
+ The website is made in Vite + ExpressJs + Monogdb as a internship entrance assignment for Endeavor. <br/>
  The time it took me to make this project is 11.5 hours <br/>
  -----------------------------------------------------------------<br/>
  ### The Process of making this project
