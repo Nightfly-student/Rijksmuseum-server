@@ -30,7 +30,7 @@ The difficulties I faced where creating a observer to make an infinte scroll, an
    
   If you hire me to be an intern, I will try to follow some courses on typescript and angular during the summer break<br/>
   
-  Thanks for the oppertunity and for a fun project.
+  Thanks for the opportunity and for a fun project.
 
 
  
